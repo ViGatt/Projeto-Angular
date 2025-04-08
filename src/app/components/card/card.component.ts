@@ -20,4 +20,6 @@ export class CardComponent {
   gamePrice:string = ""
   @Input() 
   cardLink: string = '#';
+  @Input() 
+  showTitle: boolean = true
 }

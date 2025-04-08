@@ -12,4 +12,5 @@ export class CardPricingComponent {
   gameType:string = ""
   @Input()
   gamePrice:string = ""
+  
 }
