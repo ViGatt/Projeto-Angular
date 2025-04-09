@@ -1,27 +1,60 @@
 <section class="form-section">
-  <div class="text">
-      <h3 class="font-1-xxl">
-          Não encontrou algo que busca?
-      </h3>
-      <p class="font-2-l">Estamos aqui para ajudar! Se você tiver alguma dúvida, problema ou simplesmente precisar de assistência, não hesite em entrar em contato conosco. Nossa equipe dedicada está pronta para fornecer suporte personalizado e responder às suas perguntas o mais rápido possível. Preencha o formulário abaixo e entraremos em contato com você em breve. Sua satisfação é a nossa prioridade</p>
-  </div>
-  <form [formGroup]="newsletterForm">
-    <label for="nome">Nome</label>
-    <input id="nome" formControlName="nome"/>
-    <label for="email">E-mail</label>
-    <input id="email" formControlName="email"/>
-    <label for="cidade">Cidade</label>
-    <input id="cidade" formControlName="cidade"/>
-    <label for="descrição">Descrição</label>
-    <input id="descrição" formControlName="descrição"/>
-    
-    <btn-primary 
-    btn-text="Se inscreva" 
-    variant="secondary"
-    (submit)="onSubmit()"
-    [disabled]="!newsletterForm.valid"
-    [loading]="loading()"
-    >
-</btn-primary>
-</form>
+    <div class="professional-column">
+        <h1 class="font-1-xxl">Venha conhecer minha trajetória profissional até o momento:</h1>
+        <p class="font-2-l">Sou um profissional comprometido, com perfil proativo e em constante busca por desenvolvimento pessoal e profissional. Tenho facilidade em aprender, trabalhar em equipe e me adaptar a diferentes contextos. Ao longo da minha trajetória, adquiri experiências que contribuíram para o aprimoramento das minhas habilidades técnicas e comportamentais.</p>
+        <ul class="experience-list">
+            <li class="experience-item">
+                <h4 class="font-1-l">Auxiliar Administrativo - RIC Ambiental</h4>
+                <p class="font-2-m">Out. 2024 - Presente</p>
+                <p class="font-2-s">Processamento de dados, parametrização do sistema, geração de indicativos e relatórios, manipulação de dados financeiros, comunicação com os bancos e empresas terceirizadas, identificação de melhorias no sistema, etc</p>
+            </li>
+            
+            <li class="experience-item">
+                <h4 class="font-1-l">Auxiliar de Processamento de Dados - DAEM</h4>
+                <p class="font-2-m">Mar 2024 - Out 2024</p>
+                <p class="font-2-s">Responsável por auxiliar a equipe na eficiência na resolução das solicitações de clientes, processamento de dados e informações para solução de questões, controle e lançamento de valores no sistema, etc</p>
+            </li>
+            
+            <li class="experience-item">
+                <h4 class="font-1-l">Suporte de Plataformas - Auaha</h4>
+                <p class="font-2-m">Set 2024 - Fev 2024</p>
+                <p class="font-2-s">Garantir a estabilidade e eficiência das soluções digitais. Comunicação com clientes e colegas para resolução de questões técnicas, garantindo uma experiência positiva ao usuário. Estreita comunicação com o setor de desenvolvimento para identificação de melhorias.</p>
+            </li>
+        </ul>
+    </div>
+
+    <div class="newsletter-form">
+        <h1 class="font-1-xl">Ficou alguma dúvida?</h1>
+        <p class="font-2-l">Você pode encaminhar um e-mail (apenas teste em)</p>
+        
+        <form [formGroup]="newsletterForm">
+            <div class="input-group">
+                <label for="nome" class="font-2-m">Nome</label>
+                <input id="nome" formControlName="nome" class="input-field"/>
+            </div>
+            
+            <div class="input-group">
+                <label for="email" class="font-2-m">E-mail</label>
+                <input id="email" formControlName="email" class="input-field"/>
+            </div>
+            
+            <div class="input-group">
+                <label for="cidade" class="font-2-m">Cidade</label>
+                <input id="cidade" formControlName="cidade" class="input-field"/>
+            </div>
+            
+            <div class="input-group">
+                <label for="descrição" class="font-2-m">Descrição</label>
+                <input id="descrição" formControlName="descrição" class="input-field"/>
+            </div>
+            
+            <btn-primary 
+                btn-text="Se inscreva" 
+                variant="secondary"
+                (submit)="onSubmit()"
+                [disabled]="!newsletterForm.valid"
+                [loading]="loading()">
+            </btn-primary>
+        </form>
+    </div>
 </section>
