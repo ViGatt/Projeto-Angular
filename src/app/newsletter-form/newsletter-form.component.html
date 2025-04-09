@@ -25,34 +25,60 @@
 
     <div class="newsletter-form">
         <h1 class="font-1-xl">Ficou alguma dúvida?</h1>
-        <p class="font-2-l">Você pode encaminhar um e-mail (apenas teste em)</p>
+        <p class="font-2-m">Você pode encaminhar um e-mail (apenas teste em, meus contatos estão no rodapé)</p>
         
-        <form [formGroup]="newsletterForm">
+        <!-- Mensagem de sucesso -->
+        @if (submitted()) {
+            <div class="success-message">
+                Mensagem enviada com sucesso!
+            </div>
+        }
+        
+        <form [formGroup]="newsletterForm" (ngSubmit)="onSubmit()">
+            <!-- Campo Nome -->
             <div class="input-group">
-                <label for="nome" class="font-2-m">Nome</label>
-                <input id="nome" formControlName="nome" class="input-field"/>
+                <label for="nome">Nome</label>
+                <input id="nome" formControlName="nome" placeholder="Digite seu nome">
+                @if (newsletterForm.get('nome')?.invalid && newsletterForm.get('nome')?.touched) {
+                    <small class="error-message">Nome é obrigatório</small>
+                }
             </div>
             
+            <!-- Campo E-mail -->
             <div class="input-group">
-                <label for="email" class="font-2-m">E-mail</label>
-                <input id="email" formControlName="email" class="input-field"/>
+                <label for="email">E-mail</label>
+                <input id="email" type="email" formControlName="email" placeholder="Digite seu e-mail">
+                @if (newsletterForm.get('email')?.invalid && newsletterForm.get('email')?.touched) {
+                    <small class="error-message">
+                        {{ newsletterForm.get('email')?.errors?.['required'] ? 'E-mail é obrigatório' : 'Digite um e-mail válido' }}
+                    </small>
+                }
             </div>
             
+            <!-- Campo Cidade -->
             <div class="input-group">
-                <label for="cidade" class="font-2-m">Cidade</label>
-                <input id="cidade" formControlName="cidade" class="input-field"/>
+                <label for="cidade">Cidade</label>
+                <input id="cidade" formControlName="cidade" placeholder="Digite sua cidade">
+                @if (newsletterForm.get('cidade')?.invalid && newsletterForm.get('cidade')?.touched) {
+                    <small class="error-message">Cidade é obrigatória</small>
+                }
             </div>
             
+            <!-- Campo Descrição -->
             <div class="input-group">
-                <label for="descrição" class="font-2-m">Descrição</label>
-                <input id="descrição" formControlName="descrição" class="input-field"/>
+                <label for="descrição">Descrição</label>
+                <textarea id="descrição" formControlName="descrição" rows="3" placeholder="Digite sua mensagem"></textarea>
+                @if (newsletterForm.get('descrição')?.invalid && newsletterForm.get('descrição')?.touched) {
+                    <small class="error-message">Descrição é obrigatória</small>
+                }
             </div>
             
+            <!-- Botão de Submit -->
             <btn-primary 
-                btn-text="Se inscreva" 
+                btn-text="Enviar mensagem" 
                 variant="secondary"
-                (submit)="onSubmit()"
-                [disabled]="!newsletterForm.valid"
+                type="submit"
+                [disabled]="newsletterForm.invalid || loading()"
                 [loading]="loading()">
             </btn-primary>
         </form>

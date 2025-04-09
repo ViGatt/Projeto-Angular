@@ -1,48 +1,45 @@
 import { Component, signal } from '@angular/core';
-import { BtnPrimaryComponent } from '../components/btn-primary/btn-primary.component';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { NewsletterService } from '../services/newsletter.service';
-import { HttpClientModule } from '@angular/common/http';
+import { BtnPrimaryComponent } from '../components/btn-primary/btn-primary.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-newsletter-form',
   standalone: true,
-  imports: [BtnPrimaryComponent,ReactiveFormsModule],
-  providers: [
-    NewsletterService
-  ],
+  imports: [BtnPrimaryComponent, ReactiveFormsModule, CommonModule],
   templateUrl: './newsletter-form.component.html',
-  styleUrl: './newsletter-form.component.css'
+  styleUrls: ['./newsletter-form.component.css']
 })
 export class NewsletterFormComponent {
-  newsletterForm!: FormGroup;
+  newsletterForm: FormGroup;
   loading = signal(false);
+  submitted = signal(false);
 
-  constructor(private service: NewsletterService) {
+  constructor() {
     this.newsletterForm = new FormGroup({
       nome: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.email]),
       cidade: new FormControl('', [Validators.required]),
       descrição: new FormControl('', [Validators.required])
     });
-}
-onSubmit(){
-  this.loading.set(true);
-  if(this.newsletterForm.valid){
-    this.service.sendData(this.newsletterForm.value.nome, this.newsletterForm.value.email,this.newsletterForm.value.cidade,this.newsletterForm.value.descrição)
-    .subscribe({
-      next: () => {
+  }
+
+  onSubmit() {
+    this.newsletterForm.markAllAsTouched();
+    
+    if (this.newsletterForm.valid) {
+      this.loading.set(true);
+      
+      setTimeout(() => {
+        console.log('Dados enviados:', this.newsletterForm.value);
+        
+        this.submitted.set(true);
+        
         this.newsletterForm.reset();
         this.loading.set(false);
-      },
-      error: () => this.loading.set(false)
-    })
-    {
-      console.log("Formulário enviado", this.newsletterForm.value);;
-      return;
+        
+        setTimeout(() => this.submitted.set(false), 3000);
+      }, 1500);
     }
-    
-  }
   }
 }
- 
