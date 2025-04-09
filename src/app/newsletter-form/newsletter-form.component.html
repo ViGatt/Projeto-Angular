@@ -27,7 +27,6 @@
         <h1 class="font-1-xl">Ficou alguma dúvida?</h1>
         <p class="font-2-m">Você pode encaminhar um e-mail (apenas teste em, meus contatos estão no rodapé)</p>
         
-        <!-- Mensagem de sucesso -->
         @if (submitted()) {
             <div class="success-message">
                 Mensagem enviada com sucesso!
@@ -35,7 +34,6 @@
         }
         
         <form [formGroup]="newsletterForm" (ngSubmit)="onSubmit()">
-            <!-- Campo Nome -->
             <div class="input-group">
                 <label for="nome">Nome</label>
                 <input id="nome" formControlName="nome" placeholder="Digite seu nome">
