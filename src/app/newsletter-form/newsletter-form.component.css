@@ -17,46 +17,9 @@
 .professional-column {
   flex: 1.5; 
   min-width: 0; 
-}
-.success-message {
-  background-color: #4CAF50;
-  color: white;
-  padding: 15px;
-  margin-bottom: 20px;
-  border-radius: 4px;
-  text-align: center;
+  position: relative;
 }
 
-.input-group {
-  margin-bottom: 20px;
-}
-
-input, textarea {
-  width: 100%;
-  padding: 10px;
-  margin-top: 5px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
-textarea {
-  resize: vertical;
-}
-
-.submit-btn {
-  background-color: #2196F3;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  width: 100%;
-}
-
-.submit-btn:disabled {
-  background-color: #cccccc;
-  cursor: not-allowed;
-}
 
 .form-section h3 {
   font-size: 36px;
@@ -110,7 +73,7 @@ textarea {
 .font-2-l {
   font: 400 1.5rem/1.5 "Roboto", sans-serif;
   color: #ffffff;
-  padding-bottom: 10px;
+  padding-bottom: 10x;
 }
 
 .font-1-l {
@@ -146,9 +109,65 @@ form input {
   border: none;
   border-bottom: 1px solid white;
   width: 100%;
-  color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
   height: 60px;
   margin-bottom: 40px;
+  font: 400 1rem/1.5 "Roboto", sans-serif;
+}
+.input-group {
+  margin-bottom: 1.5rem;
+}
+
+.input-group input,
+.input-group textarea {
+  width: 100%;
+  min-height: 56px; 
+  padding: 1rem 1.5rem; 
+  font-size: 1.1rem; 
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+.input-group textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+.input-group input:focus,
+.input-group textarea:focus {
+  border-color: #43dd77; 
+  background-color: #fff;
+  box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.2); 
+  outline: none;
+}
+
+.error-message {
+  position: absolute; 
+  left: 0;
+  bottom: -1.5rem; 
+  color: #ff6b6b;
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+  display: block;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7); 
+  padding: 0.25rem 0.5rem;
+  border-radius: 0 0 4px 4px;
+  font: 400 1rem/1.5 "Roboto", sans-serif;
+}
+
+.success-message {
+  left: 0;
+  bottom: -1.5rem; 
+  color: #ff6b6b;
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+  display: block;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7); 
+  padding: 0.25rem 0.5rem;
+  border-radius: 0 0 4px 4px;
   font: 400 1rem/1.5 "Roboto", sans-serif;
 }
 
@@ -164,28 +183,44 @@ form label {
   margin-bottom: 30px;
 }
 
+.columns-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; 
+}
+
 .newsletter-form {
-  flex: 1;
-  min-width: 350px; 
-  position:sticky;
-  top: 20px;
-  padding: 30px;
+  display: flex;
+  top: 50%;
+  transform: translateY(+30%);
+  flex-direction: column;
+  justify-content: center; /* Centraliza verticalmente */
+  min-height: 70vh; /* Altura mínima para centralização */
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  
 }
 
 
 .submit-btn {
-  background: white;
-  color: black;
+  width: 100%;
+  padding: 1rem;
+  background-color: #42f468;
+  color: white;
   border: none;
-  padding: 15px 30px;
-  font: 600 1rem/1.5 "Poppins", sans-serif;
+  border-radius: 8px;
+  font-size: 1.1rem;
   cursor: pointer;
-  transition: all 0.3s ease;
-  margin-top: 20px;
+  transition: background-color 0.3s;
+  padding-bottom: 30px;
 }
 
 .submit-btn:hover {
-  background: #e0e0e0;
+  background-color: rgb(54, 146, 36);
 }
 
 @media (min-width: 768px) {
