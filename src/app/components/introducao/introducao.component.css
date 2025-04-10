@@ -90,6 +90,11 @@
 }
   
 
+.botao-container {
+  text-align: center;
+  margin-top: 32px;
+}
+
 .botao {
   display: inline-block;
   padding: 16px 32px;
@@ -103,7 +108,7 @@
   max-width: max-content;
   border: none;
   cursor: pointer;
-  margin-left: 110px;
+  margin: 0 auto;
 }
 
   .botao:hover {

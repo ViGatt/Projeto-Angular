@@ -36,7 +36,7 @@
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 30px;
   flex: 1;
 }
 
@@ -55,6 +55,7 @@
   padding: 25px;
   transition: transform 0.3s ease;
   text-align: left;
+  margin-bottom: 20px;
 }
 
 .experience-item:hover {
@@ -73,7 +74,6 @@
 .font-2-l {
   font: 400 1.5rem/1.5 "Roboto", sans-serif;
   color: #ffffff;
-  padding-bottom: 10x;
 }
 
 .font-1-l {
@@ -231,6 +231,11 @@ form label {
   .experience-item {
     padding: 30px 40px;
   }
+
+  .experience-item p {
+    margin-bottom: 15px; 
+    line-height: 1.6; 
+  }
   
   .font-2-s {
     font-size: 1rem;
@@ -281,5 +286,16 @@ form label {
   .newsletter-form,
   .seu-container-principal {
     padding: 40px;
+  }
+
+  .font-2-l {
+    font: 300 1.5rem/1.5 "Roboto", sans-serif;
+    color: #ffffff;
+    margin: 30px;
+  }
+  .font-1-xxl{
+    font: 600 3.8rem/1.125 "Poppins", sans-serif;
+    color: #ffffff;
+  margin: 15px;
   }
 }

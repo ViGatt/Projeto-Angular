@@ -112,8 +112,8 @@
 }
 .skill-card-img {
   display: block;
-  margin: 0 auto 0px auto; /* Centraliza e adiciona espaço abaixo */
-  width: 24px; /* Mantém o tamanho definido */
+  margin: 0 auto 0px auto; 
+  width: 24px; 
   height: 24px;
 }
 
@@ -153,14 +153,11 @@
 }
     .font-2-l,
     .font-2-l-b {
-    font-size: 1.125rem;
+    font-size: 1.5rem;
 }
 }
 
     @media (max-width: 800px) {
-    .font-1-xxl {
-    font-size: 2rem;
-}
     .font-1-xl,
     .font-2-xl {
     font-size: 1.5rem;
